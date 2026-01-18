@@ -1,0 +1,151 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Blog Login</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: "Poppins", sans-serif;
+      }
+
+       body {
+        height: 100vh;
+        background:
+          linear-gradient(rgba(102, 126, 234, 0.85), rgba(118, 75, 162, 0.85)),
+          url("https://images.unsplash.com/photo-1522202176988-66273c2fd55f");
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        animation: fadeIn 1.5s ease-in-out;
+      }
+
+      .auth-box {
+        background: #fff;
+        width: 380px;
+        padding: 30px;
+        border-radius: 15px;
+        box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+      }
+
+      .auth-box {
+    animation: slideUp 1.2s ease;
+}
+
+@keyframes slideUp {
+    from {
+        opacity: 0;
+        transform: translateY(40px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+
+      .auth-box h2 {
+        text-align: center;
+        margin-bottom: 25px;
+        color: #333;
+      }
+
+      .input-group {
+        margin-bottom: 18px;
+      }
+
+      .input-group label {
+        font-size: 14px;
+        color: #555;
+      }
+
+      .input-group input {
+        width: 100%;
+        padding: 10px;
+        margin-top: 5px;
+        border-radius: 8px;
+        border: 1px solid #ccc;
+        outline: none;
+      }
+
+      .input-group input:focus {
+        border-color: #667eea;
+      }
+
+      .btn {
+        width: 100%;
+        padding: 12px;
+        border: none;
+        border-radius: 10px;
+        background: #667eea;
+        color: #fff;
+        font-size: 16px;
+        cursor: pointer;
+        transition: 0.3s;
+      }
+
+      .btn:hover {
+        background: #5a67d8;
+      }
+
+      .text {
+        text-align: center;
+        margin-top: 15px;
+        font-size: 14px;
+      }
+
+      .text a {
+        color: #667eea;
+        text-decoration: none;
+        font-weight: 600;
+      }
+
+    
+
+      @keyframes fadeIn {
+        from {
+          opacity: 0;
+          transform: scale(1.05);
+        }
+        to {
+          opacity: 1;
+          transform: scale(1);
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="auth-box">
+      <h2>Blog Login</h2>
+      <form method="POST">
+        {% csrf_token %}
+        <div class="input-group">
+          <label>Email</label>
+          <input type="email" placeholder="Enter your email" name = 'email' />
+        </div>
+
+        <div class="input-group">
+          <label>Password</label>
+          <input type="password" placeholder="Enter your password" name = 'password' />
+        </div>
+
+        <button class="btn">Login</button>
+
+        <p class="text">
+          Don't have an account? <a href="{% url 'signup' %}">Sign Up</a>
+        </p>
+      </form>
+    </div>
+  </body>
+</html>

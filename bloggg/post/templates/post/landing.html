@@ -1,0 +1,202 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>MyBlog – Share Your Thoughts</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: system-ui;
+      background: linear-gradient(120deg, #0d1117, #161b22);
+      color: white;
+    }
+
+    nav {
+      display: flex;
+      justify-content: space-between;
+      padding: 20px 8%;
+    }
+
+    .logo {
+      font-size: 1.6rem;
+      font-weight: bold;
+    }
+
+    .btn {
+      padding: 10px 20px;
+      border-radius: 6px;
+      border: none;
+      cursor: pointer;
+      font-weight: 600;
+    }
+
+    .btn-login {
+      background: transparent;
+      color: white;
+      border: 1px solid #2f81f7;
+    }
+
+    .btn-signup {
+      background: #2f81f7;
+      color: white;
+    }
+
+    .hero {
+      text-align: center;
+      padding: 100px 15%;
+    }
+
+    .hero h1 {
+      font-size: 3rem;
+      margin-bottom: 20px;
+    }
+
+    .hero p {
+      font-size: 1.2rem;
+      color: #c9d1d9;
+      margin-bottom: 40px;
+    }
+
+    .features {
+      display: flex;
+      gap: 30px;
+      justify-content: center;
+    }
+
+    .feature-box {
+      background: #161b22;
+      padding: 30px;
+      border-radius: 12px;
+      width: 250px;
+    }
+  </style>
+  <style>
+  /* ---------- ANIMATIONS ---------- */
+  @keyframes fadeUp {
+    from {
+      opacity: 0;
+      transform: translateY(40px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  @keyframes float {
+    0% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+    100% { transform: translateY(0); }
+  }
+
+  /* ---------- HERO BACKGROUND IMAGE ---------- */
+  .hero {
+    background-image: 
+      linear-gradient(rgba(13,17,23,0.9), rgba(13,17,23,0.9)),
+      url("https://images.unsplash.com/photo-1526378722484-bd91ca387e72");
+    background-size: cover;
+    background-position: center;
+    animation: fadeUp 1.2s ease;
+  }
+
+  /* ---------- FEATURE CARDS EFFECT ---------- */
+  .feature-box {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    animation: fadeUp 1.4s ease;
+  }
+
+  .feature-box:hover {
+    transform: translateY(-10px) scale(1.03);
+    box-shadow: 0 20px 40px rgba(47,129,247,0.3);
+  }
+
+  /* ---------- BUTTON HOVER ---------- */
+  .btn {
+    transition: all 0.3s ease;
+  }
+
+  .btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 25px rgba(47,129,247,0.4);
+  }
+
+  /* ---------- LOGO ---------- */
+  .logo a {
+    color: white;
+    text-decoration: none;
+  }
+
+  .logo {
+    animation: float 4s ease-in-out infinite;
+  }
+
+  /* ---------- DETAILS SECTION ---------- */
+  .details {
+    padding: 80px 12%;
+    background: #0d1117;
+    text-align: center;
+  }
+
+  .details h2 {
+    font-size: 2.2rem;
+    margin-bottom: 20px;
+  }
+
+  .details p {
+    color: #c9d1d9;
+    max-width: 700px;
+    margin: auto;
+    font-size: 1.1rem;
+    line-height: 1.6;
+  }
+
+  .details img {
+    width: 100%;
+    max-width: 600px;
+    margin-top: 40px;
+    border-radius: 14px;
+    animation: fadeUp 1.6s ease;
+  }
+</style>
+
+</head>
+
+<body>
+  <nav>
+    <div class="logo"><a href="{% url 'landing' %}">MyBlog</a></div>
+    <div>
+      <a href="{% url 'loginn' %}">
+        <button class="btn btn-login">Login</button>
+      </a>
+      <a href="{% url 'signup' %}">
+        <button class="btn btn-signup">Sign Up</button>
+      </a>
+    </div>
+  </nav>
+
+  <section class="hero">
+    <h1>Write. Share. Connect.</h1>
+    <p>A simple blogging platform where your ideas matter.</p>
+
+    <div class="features">
+      <div class="feature-box">✍️ Write blogs easily</div>
+      <div class="feature-box">🌍 Share with community</div>
+      <div class="feature-box">🚀 Grow your audience</div>
+    </div>
+  </section>
+  <section class="details">
+  <h2>Why MyBlog?</h2>
+  <p>
+    MyBlog is a modern blogging platform built for creators, developers,
+    and thinkers. Share your ideas, connect with others, and grow your
+    digital presence — all in one place.
+  </p>
+
+  <img
+    src="https://images.unsplash.com/photo-1499750310107-5fef28a66643"
+    alt="Blogging illustration"
+  />
+</section>
+
+</body>
+</html>

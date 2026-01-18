@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>{{ profile_user.username }} | Profile</title>
+  <style>
+    body {
+      background: #0d1117;
+      color: #c9d1d9;
+      font-family: system-ui;
+    }
+
+    .layout {
+      display: flex;
+      gap: 30px;
+      padding: 40px 8%;
+    }
+
+    .profile-card {
+      width: 280px;
+      background: #161b22;
+      padding: 25px;
+      border-radius: 12px;
+      border: 1px solid #30363d;
+    }
+
+    .profile-card h2 {
+      color: white;
+      margin-bottom: 10px;
+    }
+
+    .profile-card p {
+      font-size: 0.9rem;
+      color: #8b949e;
+      margin-bottom: 8px;
+    }
+
+    .posts {
+      flex: 1;
+    }
+
+    .post-card {
+      background: #161b22;
+      padding: 20px;
+      border-radius: 12px;
+      margin-bottom: 20px;
+      border: 1px solid #30363d;
+    }
+  </style>
+</head>
+
+<body>
+
+<div class="layout">
+
+  <!-- LEFT PROFILE -->
+  <aside class="profile-card">
+    <h2>@{{ profile_user.username }}</h2>
+    <p>📧 {{ profile_user.email }}</p>
+    <p>🗓 Joined {{ profile_user.date_joined|date:"d M Y" }}</p>
+    <p>📝 Posts: {{ posts.count }}</p>
+  </aside>
+
+  <!-- RIGHT POSTS -->
+  <section class="posts">
+    {% for post in posts %}
+      <article class="post-card">
+        <h3>{{ post.title }}</h3>
+        <p>{{ post.content|truncatewords:30 }}</p>
+        <small>{{ post.created_at|timesince }} ago</small>
+      </article>
+    {% empty %}
+      <p>This user has no posts yet.</p>
+    {% endfor %}
+  </section>
+
+</div>
+
+</body>
+</html>
